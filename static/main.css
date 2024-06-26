@@ -1,0 +1,100 @@
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('/static/images/mountain.jpg');
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    z-index: 1000; /* Ensure the navbar stays on top of other elements */
+}
+
+.container {
+    font-size: 25px;
+    position: absolute;
+    top: 80px; /* Position below the fixed navbar */
+    height: calc(100vh - 80px); /* Full height minus navbar height */
+    overflow-y: auto; /* Make the container scrollable */
+}
+.container::-webkit-scrollbar {
+    display: none;
+}
+.container {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.title {
+    font-size: 30px;
+}
+
+/* list organize */
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    opacity: 100%;
+    margin-top: 0px;
+    padding: 20px;
+}
+
+/* list attribute style */
+ul li a {
+    padding: 10px;
+    position: relative;
+    text-decoration: none;
+    font-size: 40px;
+    font-family: sans-serif;
+    color: #030000;
+    text-transform: uppercase;
+}
+
+/* initial red underline which is invisible */
+ul li a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #f82403;
+    transition: transform 0.5s;
+    transform-origin: center;
+    transform: scaleX(0);
+}
+
+/* grow the underline by scale 1 */
+ul li a:hover:before {
+    transform: scaleX(1);
+}
+
+.clouds {
+    position: absolute;
+    top: 50;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.clouds img {
+    position: absolute;
+    bottom: 0;
+    max-width: 50%;
+    animation: animate calc(13s * var(--i)) linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
